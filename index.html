@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -73,6 +73,18 @@
       background: rgba(200, 0, 0, 0.8);
     }
 
+    #secretButton {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      border: none;
+      background: gold;
+      color: black;
+      cursor: pointer;
+      display: none;
+    }
+
     #startButton {
       margin-top: 100px;
       padding: 15px 30px;
@@ -103,7 +115,9 @@
   <div id="timer">2s</div>
 </div>
 
-<div id="winMessage">🎉 You Win! 🎉</div>
+<div id="winMessage">🎉 You Win! 🎉<br>
+  <button id="secretButton" onclick="location.href='https://theorist18.github.io/Msg-to-come-bak/'">Click to see the secret message</button>
+</div>
 <div id="loseMessage">💔 Game Over 💔</div>
 
 <button id="startButton">Start Aim Test</button>
@@ -126,6 +140,7 @@
   const startButton = document.getElementById('startButton');
   const timerDisplay = document.getElementById('timer');
   const hitSound = document.getElementById('hitSound');
+  const secretButton = document.getElementById('secretButton');
 
   function updateHearts() {
     heartsContainer.innerHTML = '';
@@ -206,9 +221,7 @@
 
     if (win) {
       winMessage.style.display = 'block';
-      setTimeout(() => {
-        window.location.href = 'https://theorist18.github.io/Msg-to-come-bak/';
-      }, 2000);
+      secretButton.style.display = 'inline-block';
     } else {
       loseMessage.style.display = 'block';
     }
@@ -223,6 +236,7 @@
     hudScore.textContent = currentHits;
     winMessage.style.display = 'none';
     loseMessage.style.display = 'none';
+    secretButton.style.display = 'none';
     startButton.style.display = 'none';
     gameRunning = true;
     updateHearts();
